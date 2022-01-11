@@ -1,0 +1,77 @@
+<%- include('../partials/header') -%>
+
+<div class="container" >
+     <div class="row">
+  
+ <!--  <div class="col-md-3">
+    <div class="card">
+       <div class="card-body">
+            <form action="/add" method="POST" >
+                <div class="form-group">
+                    <input type="text" name="Autor" id="" placeholder="Autor" class="form-control">  
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" name="Titulo" id="" placeholder="Titulo" class="form-control">  
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Genero" id="" placeholder="Genero" class="form-control">  
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Editorial" id="" placeholder="Editorial" class="form-control">  
+                </div>
+                <div class="form-group">
+                    <input type="text" name="item" id="" placeholder="item" class="form-control">  
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Info" id="" placeholder="Info" class="form-control">  
+                </div>
+                <button type="submit"  class="btn btn-primary btn-block" >Guardar</button>
+        </div> 
+    </div>   
+   </div> -->
+
+   <div class="col-md-12"  >
+       <table class="table table-bordered table-hover thead-dark table-responsive-sm" >
+           <thead style="background-color: rgb(207, 198, 198);" >
+<tr>
+    <th>N°</th>
+    <th>AUTOR</th>
+    <th>TITULO</th>
+    <th>GENERO</th>
+    <th>EDITORIAL</th>
+    <th>ITEM</th>
+    <th>ACCIONES</th>
+</tr>
+           </thead>
+           
+<tbody>
+    <% for(var i=0;i<libros.length;i++){ %>     
+<tr>
+<td><%= i + 1 %> </td>    
+<td> <%=libros[i].Autor%>  </td>
+<td> <%=libros[i].Titulo%>  </td>
+<td> <%=libros[i].Genero%>  </td>
+<td> <%=libros[i].Editorial%>  </td>
+<td> <%=libros[i].Item%>  </td> 
+
+<td>
+    <a href="/detalles/<%=libros[i]._id%>"class="btn btn-success "> <span class="glyphicon glyphicon-ok-circle"style="font-size: 20px; width:45px ;" ></span> </a>
+    <a href="/editar/<%=libros[i]._id%>" class="btn btn-primary"> <span class="glyphicon glyphicon-pencil"style="font-size: 20px; width:45px"  ></span></a> 
+    <a href="/borrar/<%=libros[i]._id%>" class="btn btn-danger"> <span class="glyphicon glyphicon-remove"style="font-size: 20px;  width:45px"  ></span></a> 
+    
+</td>
+</tr> 
+
+</tbody>
+<% } %>
+       </table>
+     
+   
+ </div>   
+ 
+ </div>
+ 
+ 
+<%- include('../partials/footer') -%>
+
